@@ -8,6 +8,10 @@ import store from './src/redux/store';
 import messaging from '@react-native-firebase/messaging';
 import {Alert, AppState} from 'react-native';
 
+messaging().setBackgroundMessageHandler(async remoteMessage => {
+  console.log('Message handled in the background!', remoteMessage);
+});
+
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
